@@ -17,6 +17,12 @@ module.exports = {
         CinzelDecorative: ["Cinzel Decorativo", "cursiva"],
         BreeSerif: ["Bree Serif", "serif"],
       },
+      backgroundImage: {
+        promoCard: "url('src/assets/cardsPROMO.jpg')",
+        promoCard2: "url('src/assets/fondoCard2.jpg')",
+        
+      },
+      
       screens: {
         p: "250px",
         // => @media (min-width: 250px) { ... }
