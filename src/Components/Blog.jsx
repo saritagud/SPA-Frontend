@@ -1,11 +1,13 @@
 import Footer from "./Footer";
 import CardRecomendaciones from "./Blog/CardRecomendaciones"
-import CardConsejos from "./Blog/CardConsejos"
+import CardConsejos from "./Blog/CardConsejos";
+import Nav from "./Nav";
 
 
 function Blog() {
   return (
     <>
+    <Nav/>
       <section className="m-5 min-h-[100vh] text-vino">
         <h1 className="font-CinzelDecorative text-vino text-3xl  mt-10 font-bold">
           Salud y Belleza
