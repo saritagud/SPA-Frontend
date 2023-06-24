@@ -6,19 +6,42 @@ function Carrusel(){
 
   return (
     <ResponsiveCarousel
-      showArrows={true}
+      showArrows={true} 
       infiniteLoop={true}
       autoPlay={true}
       interval={3000}
       showThumbs={false}
       showStatus={false}
-      className="w-full"
+      className="w-[80%]"
     >
-      <div>
-        <img src="src\assets\persona2.jpg" alt="Image 1" />
+      <div className=' rounded-xl'>
+        <img src="src\assets\carrusel.jpg" alt="Image " className=' rounded-t-xl h-[50vh]' />
+        <div className='bg-vino rounded-b-xl text-white font-BreeSerif p-4 mb-8 text-start'>
         <p >Tratamiento facial rejuvenecedor</p>
         <p >50$</p>
+        </div>
+        
       </div>
+
+      <div className=' rounded-xl'>
+        <img src="src\assets\carrusel.jpg" alt="Image " className=' rounded-t-xl h-[50vh]' />
+        <div className='bg-vino rounded-b-xl text-white font-BreeSerif p-4 mb-8 text-start'>
+        <p >Tratamiento facial rejuvenecedor</p>
+        <p >50$</p>
+        </div>
+        
+      </div>
+
+      <div className=' rounded-xl'>
+        <img src="src\assets\carrusel.jpg" alt="Image " className=' rounded-t-xl h-[50vh]' />
+        <div className='bg-vino rounded-b-xl text-white font-BreeSerif p-4 mb-8 text-start'>
+        <p >Tratamiento facial rejuvenecedor</p>
+        <p >50$</p>
+        </div>
+        
+      </div>
+        
+      
     </ResponsiveCarousel>
   );
 }

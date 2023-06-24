@@ -1,65 +1,113 @@
-import { useState } from 'react';
-import { FaBars } from "react-icons/fa";
-
-const Nav = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-  
-  return (
-    <header className="bg-bgColor h-14 flex items-center justify-end px-5 w-full md:h-24 lg:h-20 2xl:h-24 border-primaryColor border-[0.5px]">
-            <nav>
-                <FaBars className="text-2xl h-full w-full cursor-pointer text-vino  md:text-4xl lg:hidden" onClick={() => setIsOpen(!isOpen)} />
-
-                {isOpen && (
-                    <ul className="origin-center absolute right-5 w-[90%] mt-2  h-screen rounded-md shadow-lg bg-marronClaro text-right font-CinzelDecorative text-vino border-solid border-2 border-vino flex flex-col items-center">
-
-                        { 
-                          <>
-                            <p  className="block px-4 py-3 text-2xl font-Urbanist">
-                            <li className=" text-textColor cursor-pointer">Blog</li>
-                          </p>
-                          <img src='src\assets\logo.png' className='w-[70%]'/>
-                          <p  className="text-2xl block px-4 py-3 font-Urbanist">
-                              <li className=" text-textColor cursor-pointer ">Temperatura</li>
-                          </p>
-                          </>
-                        }
-                        
-                    </ul>
-                )}
-
-                
-
-                    <div className="p:hidden sm:hidden md:hidden lg:block">
-                    <ul className="flex justify-between w-full ur:h-24 ">
-                        { 
-                            // Mostrar la pagina chat y personalizacion unicamente cuando el usuario este logueado
-                          <>
-                            <p  className="block px-4 py-3  rounded-2xl text-2xl font-Urbanist 2xl:text-3xl ur:text-4xl ur:m-4">
-                            <li className="text-textColor cursor-pointer font-bold">MomoyBOT</li>
-                          </p>
-                          <p  className="block px-4 py-3  rounded-2xl text-2xl font-Urbanist 2xl:text-3xl  ur:text-4xl ur:m-4">
-                              <li className="text-textColor font-bold cursor-pointer">Personalización</li>
-                          </p>
-                          </>
-                        }
-                        {
-                          !  // Mostrar la pagina login y registro unicamente cunado el usuario no tenga una cuenta o haya iniciado sesion
-                          <>
-                            <p  className="block px-4 py-3  rounded-2xl text-2xl font-Urbanist ur:text-4xl ur:m-4">
-                            <li className="text-textColor cursor-pointer font-bold">Iniciar Sesión</li>
-                            </p>
-                            <p  className="block px-4 py-3  rounded-2xl text-2xl font-Urbanist ur:text-4xl ur:m-4">
-                                <li className="text-textColor cursor-pointer font-bold">Registrarse</li>
-                            </p>
-                          </>
-                        }
-                        
-                    </ul>
-                  </div>
-            </nav>
-        </header>
+import { useState, useEffect } from "react";
+import {
+  Navbar,
+  MobileNav,
+  Typography,
+  IconButton,
+} from "@material-tailwind/react";
+ 
+export default function Example() {
+  const [openNav, setOpenNav] = useState(false);
+ 
+  useEffect(() => {
+    window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
+  }, []);
+ 
+  const navList = (
+    <ul className="mb-4 mt-2 flex flex-col items-center gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 text-vino font-CinzelDecorative text-xl">
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <a href="#" className="flex items-center">
+        Blog
+        </a>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <a href="#" className="flex items-center">
+          Temperatura
+        </a>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <a href="#" className="flex items-center justify-center">
+        <img src="src\assets\logo.png" className="w-[80%]"/>
+        </a>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <a href="#" className="flex items-center">
+        Administrador
+        </a>
+      </Typography>
+    </ul>
   );
-};
+ 
+  return (
+    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
+      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
 
-export default Nav;
+        <div className="hidden lg:block">{navList}</div>
+        
+        <IconButton
+          variant="text"
+          className="ml-auto h-6 w-6   text-vino hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          ripple={false}
+          onClick={() => setOpenNav(!openNav)}
+        >
+          {openNav ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          )}
+        </IconButton>
+      </div>
+      <MobileNav open={openNav}>
+        <div className="container mx-auto">
+          {navList}
+          
+        </div>
+      </MobileNav>
+    </Navbar>
+  );
+}
