@@ -34,10 +34,9 @@ function Blog() {
 
       <section className="flex flex-col justify-center items-center">
         <h1 className="font-CinzelDecorative text-3xl text-center text-vino ">
-          Cuales son los mejores alimentos para tu piel?
+          ¿Cuales son los mejores alimentos para tu piel?
         </h1>
 
-        <CardRecomendaciones/>
         <CardRecomendaciones/>
       </section>
 
@@ -53,7 +52,7 @@ function Blog() {
         </h1>
 
         <CardConsejos/>
-        <CardConsejos/>
+        
       </section>
 
       <Footer />

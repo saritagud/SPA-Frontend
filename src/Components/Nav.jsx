@@ -21,7 +21,7 @@ export default function Example() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <a href="/blog" className="flex items-center">
         Blog
         </a>
       </Typography>
@@ -51,22 +51,22 @@ export default function Example() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
-        Administrador
+        <a href="/" className="flex items-center">
+        Inicio
         </a>
       </Typography>
     </ul>
   );
  
   return (
-    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+    <Navbar className="mx-auto  max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
+      <div className="container  mx-auto flex items-center justify-between text-blue-gray-900">
 
-        <div className="hidden lg:block">{navList}</div>
+        <div className="hidden  lg:block">{navList}</div>
         
         <IconButton
           variant="text"
-          className="ml-auto h-6 w-6   text-vino hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          className="ml-auto mt-5  h-3 w-2 text-vino hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >

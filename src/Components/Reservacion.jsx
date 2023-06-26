@@ -18,15 +18,15 @@ function Reservaciones(){
 
 
                     <label className="text-start w-full mt-3 mb-3">Servicio</label>
-                    <select className="bg-vino rounded-xl p-2 text-white">
-                    <option>Selecciona tu horario</option>
+                    <select className="bg-vino rounded-xl p-3 text-white text-lg w-full">
+                    <option>Selecciona tu servicio</option>
                     <option>Selecciona tu horario</option>
                     <option>Selecciona tu horario</option>
                     <option>Selecciona tu horario</option>
                     </select>
 
-                    <label className="text-start w-full mt-3 mb-3">Servicio</label>
-                    <select className="bg-vino rounded-xl p-2 text-white">
+                    <label className="text-start w-full mt-3 mb-3">Horario</label>
+                    <select className="bg-vino rounded-xl p-3 text-white text-lg w-full">
                     <option>Selecciona tu horario</option>
                     <option>Selecciona tu horario</option>
                     <option>Selecciona tu horario</option>
