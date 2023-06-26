@@ -59,7 +59,7 @@ function ModalUpdate() {
               <input
                 className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  "
                 onChange={(e) => setPromotion(e.target.value.trim())}
-                type="text"
+                type="number"
               />
 
               <label className="w-full text-left mb-3 text-xl mt-3">

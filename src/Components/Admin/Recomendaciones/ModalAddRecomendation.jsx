@@ -1,22 +1,23 @@
-import { FaWindowClose, FaPencilAlt } from "react-icons/fa";
+import { FaWindowClose } from "react-icons/fa";
+import {IoAddCircleSharp} from "react-icons/io5"
 import { useState } from "react";
 
-function ModalUpdate({ promotionId }) {
+function ModalAdd() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [Promotion, setPromotion] = useState("");
-  const [Service, setService] = useState("");
+  const [Name, setName] = useState("");
+  const [Recommendation, setRecommendation] = useState("");
 
   const submit = (event) => {
     event.preventDefault();
 
     const dataForm = {
-      discount: Promotion,
-      service: Service
+      name: Name,
+      recommendation: Recommendation,
     };
 
-    fetch("http://localhost:3000/putPromotion/" + promotionId, {
-      method: "PUT",
+    fetch("http://localhost:3000/postRecommendation", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -32,8 +33,8 @@ function ModalUpdate({ promotionId }) {
   };
   return (
     <>
-      <FaPencilAlt
-        className="text-right text-xl flex items-end justify-end mr-2 cursor-pointer lg:text-4xl"
+      <IoAddCircleSharp
+        className="text-right text-vino text-4xl flex items-end justify-end mr-2 cursor-pointer lg:text-4xl"
         onClick={() => setIsOpen(true)}
       />
 
@@ -50,25 +51,21 @@ function ModalUpdate({ promotionId }) {
                   onClick={() => setIsOpen(false)}
                 />
               </div>
-              <label className="w-full text-left mb-3 text-xl ">
-                Descuento
-              </label>
+              <label className="w-full text-left mb-3 text-xl ">Nombre</label>
               <input
-                className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  "
-                onChange={(e) => setPromotion(e.target.value.trim())}
-                type="number"
-              />
-
-              <label className="w-full text-left mb-3 text-xl mt-3">
-                Servicio
-              </label>
-              <input
-                className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  "
-                onChange={(e) => setService(e.target.value.trim())}
+                className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full "
+                onChange={(e) => setName(e.target.value.trim())}
                 type="text"
               />
 
-              <button className="bg-vino p-3 rounded-md text-lg text-white font-BreeSerif font-semibold w-[50%] flex justify-center m-8 lg:p-4 lg:w-[30%s]">
+              <label className="w-full text-left mb-3 text-xl ">Descripcion</label>
+              <input
+                className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full "
+                onChange={(e) => setRecommendation(e.target.value.trim())}
+                type="text"
+              />
+
+              <button className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold w-[50%] flex justify-center m-5 lg:p-4 lg:w-[30%s]">
                 Guardar
               </button>
             </div>
@@ -79,4 +76,4 @@ function ModalUpdate({ promotionId }) {
   );
 }
 
-export default ModalUpdate;
+export default ModalAdd;

@@ -22,7 +22,7 @@ function CardPromo() {
   return (
     <>
       {promotion.map((promotion) => (
-        <section key={promotion._id} className="bg-promoCard2 bg-cover bg-no-repeat rounded-3xl text-white flex flex-col justify-center items-center h-[40vh] mt-5 mb-16 w-[70%]">
+        <section key={promotion._id} className="bg-promoCard2 bg-cover bg-no-repeat rounded-3xl text-white flex flex-col justify-center items-center h-[45vh] mt-5 mb-16 w-[70%]">
             <div className="flex justify-end items-end w-full mt-3">
                 <ModalUpdatePromo promotionId={promotion._id} />
                 <ModalDeletePromo promotionId={promotion._id}/>
@@ -40,7 +40,7 @@ function CardPromo() {
             <h1 key={promotion._id} className="font-bold text-3xl pl-4 pr-4">
               {promotion.discount}%
             </h1>
-            <p className="font-BreeSerif text-xl mb-20">{promotion.service}</p>
+            <p className="font-BreeSerif text-2xl mb-20">{promotion.service}</p>
           </div>
         </section>
       ))}

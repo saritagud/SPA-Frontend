@@ -1,21 +1,21 @@
 import { FaWindowClose, FaPencilAlt } from "react-icons/fa";
 import { useState } from "react";
 
-function ModalUpdate({ promotionId }) {
+function ModalUpdate({ serviceId }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [Promotion, setPromotion] = useState("");
+  const [Price, setPrice] = useState("");
   const [Service, setService] = useState("");
 
   const submit = (event) => {
     event.preventDefault();
 
     const dataForm = {
-      discount: Promotion,
-      service: Service
+      discount: Price,
+      service: Service,
     };
 
-    fetch("http://localhost:3000/putPromotion/" + promotionId, {
+    fetch("http://localhost:3000/putService/" + serviceId, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -50,14 +50,6 @@ function ModalUpdate({ promotionId }) {
                   onClick={() => setIsOpen(false)}
                 />
               </div>
-              <label className="w-full text-left mb-3 text-xl ">
-                Descuento
-              </label>
-              <input
-                className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  "
-                onChange={(e) => setPromotion(e.target.value.trim())}
-                type="number"
-              />
 
               <label className="w-full text-left mb-3 text-xl mt-3">
                 Servicio
@@ -66,6 +58,15 @@ function ModalUpdate({ promotionId }) {
                 className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  "
                 onChange={(e) => setService(e.target.value.trim())}
                 type="text"
+              />
+
+              <label className="w-full text-left mb-3 text-xl ">
+                Precio
+              </label>
+              <input
+                className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  "
+                onChange={(e) => setPrice(e.target.value.trim())}
+                type="number"
               />
 
               <button className="bg-vino p-3 rounded-md text-lg text-white font-BreeSerif font-semibold w-[50%] flex justify-center m-8 lg:p-4 lg:w-[30%s]">

@@ -19,7 +19,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 text-2xl"
       >
         <a href="/blog" className="flex items-center">
         Blog
@@ -29,7 +29,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 text-2xl"
       >
         <a href="#" className="flex items-center">
           Temperatura
@@ -39,7 +39,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 text-2xl"
       >
         <a href="#" className="flex items-center justify-center">
         <img src="src\assets\logo.png" className="w-[80%]"/>
@@ -49,7 +49,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 text-2xl"
       >
         <a href="/" className="flex items-center">
         Inicio

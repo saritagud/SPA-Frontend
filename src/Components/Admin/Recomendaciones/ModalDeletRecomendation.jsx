@@ -1,11 +1,11 @@
 import {  FaTrash } from "react-icons/fa";
 import { useState } from "react";
 
-function ModalDelete({testimonyId}) {
+function ModalDelete({recommendationId}) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleDelete = (testimonyId) => {
-    fetch("http://localhost:3000/deleteTestimony/" + testimonyId, {
+  const handleDelete = (recommendationId) => {
+    fetch("http://localhost:3000/deleteRecommendation/" + recommendationId, {
       method: "DELETE",
     })
       .then((response) => response.json())
@@ -38,7 +38,7 @@ function ModalDelete({testimonyId}) {
               </button>
                 <button
                   className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold  flex justify-center mt-10 mr-5"
-                  onClick={() => handleDelete(testimonyId)}
+                  onClick={() => handleDelete(recommendationId)}
                 >
                   Eliminar
                 </button>

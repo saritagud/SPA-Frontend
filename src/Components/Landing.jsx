@@ -6,6 +6,7 @@ import Carrusel from "./Landing/CarruselServicios";
 import Nav from "./Nav";
 import ModalAddTestimony from "./Admin/Testimonios/ModalAddTestimony";
 import ModalAddPromo from "./Admin/Promotions/ModalAddPromo";
+import ModalAddService from "./Admin/Servicios/ModalAddService";
 
 function Landing() {
   return (
@@ -57,6 +58,10 @@ function Landing() {
       </section>
 
       <section className="flex flex-col justify-center items-center ">
+        <div className="flex justify-end items-end w-full mr-5">
+          <ModalAddService />
+        </div>
+
         <h1 className="font-CinzelDecorative text-3xl text-vino mb-8">
           Servicios
         </h1>

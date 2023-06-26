@@ -2,6 +2,8 @@ import Footer from "./Footer";
 import CardRecomendaciones from "./Blog/CardRecomendaciones"
 import CardConsejos from "./Blog/CardConsejos";
 import Nav from "./Nav";
+import ModalAddTips from "./Admin/Tips/ModalAddTips";
+import ModalAddRecomendation from "./Admin/Recomendaciones/ModalAddRecomendation";
 
 
 function Blog() {
@@ -33,6 +35,9 @@ function Blog() {
       </section>
 
       <section className="flex flex-col justify-center items-center">
+      <div className="flex justify-end w-full">
+        <ModalAddRecomendation/>
+      </div>
         <h1 className="font-CinzelDecorative text-3xl text-center text-vino ">
           ¿Cuales son los mejores alimentos para tu piel?
         </h1>
@@ -47,6 +52,9 @@ function Blog() {
       </section>
 
       <section className="flex flex-col justify-center items-center ">
+      <div className="flex justify-end w-full">
+        <ModalAddTips/>
+      </div>
         <h1 className="font-CinzelDecorative text-3xl text-vino ">
           Consejos de belleza
         </h1>

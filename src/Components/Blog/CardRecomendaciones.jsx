@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ModalUpdateRecomendation from "../Admin/Recomendaciones/ModalUpdateRecomendation";
+import ModalDeleteRecomendation from "../Admin/Recomendaciones/ModalDeletRecomendation";
 
 function CardRecomendaciones(){
 
@@ -21,6 +23,10 @@ function CardRecomendaciones(){
         <>
         {recommendation.map((recommendation) => (
             <section key={recommendation._id} className="flex flex-col items-center w-[80%]">
+            <div className="flex justify-end w-full mt-5">
+              <ModalUpdateRecomendation recommendationId={recommendation._id}/>
+              <ModalDeleteRecomendation recommendationId={recommendation._id}/>
+            </div>
                 <img src="src\assets\recomen.jpg" className="w-[70%] rounded-[100%] h-[25vh] mt-5"/>
 
                 <div className="text-center m-3 font-BreeSerif text-vino">
