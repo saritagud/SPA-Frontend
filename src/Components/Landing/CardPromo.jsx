@@ -2,6 +2,7 @@ import { useState } from "react";
 import ModalUpdatePromo from "../Admin/Promotions/ModalUpdatePromo";
 import ModalDeletePromo from "../Admin/Promotions/ModalDeletePromo";
 
+
 function CardPromo() {
   const [promotion, setPromotion] = useState([]);
 
@@ -22,14 +23,14 @@ function CardPromo() {
     <>
       {promotion.map((promotion) => (
         <section key={promotion._id} className="bg-promoCard2 bg-cover bg-no-repeat rounded-3xl text-white flex flex-col justify-center items-center h-[40vh] mt-5 mb-16 w-[70%]">
-          <img
-            src={promotion.image }   
-            className="w-[55%] rounded-[80%] h-[18vh] -mt-16"
-          /> 
-            <div className="flex justify-end items-end w-full">
+            <div className="flex justify-end items-end w-full mt-3">
                 <ModalUpdatePromo promotionId={promotion._id} />
                 <ModalDeletePromo promotionId={promotion._id}/>
             </div>
+          <img
+            src={promotion.image }   
+            className="w-[55%] rounded-[80%] h-[18vh] -mt-28"
+          /> 
 
 
           <div
