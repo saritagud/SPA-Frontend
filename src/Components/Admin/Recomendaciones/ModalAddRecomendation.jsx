@@ -60,7 +60,7 @@ function ModalAdd() {
                     Nombre
                   </label>
                   <input
-                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full "
+                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full sm:text-lg"
                     onChange={(e) => setName(e.target.value.trim())}
                     type="text"
                   />

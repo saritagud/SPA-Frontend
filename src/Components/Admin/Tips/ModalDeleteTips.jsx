@@ -35,18 +35,18 @@ function ModalDelete({ tipId }) {
             <section className="fixed flex justify-center items-center inset-0 backdrop-blur-sm bg-black bg-opacity-30 ">
               <section className="bg-cremaFondo rounded-xl p-5 w-[90%] ">
                 <div className="bg-cremaFondo text-vino border-2 border-vino  rounded-xl p-4 font-BreeSerif w-full text-azul flex flex-col justify-center items-center text-sm text-[15px] sm:w-[80%] sm:text-[20px] lg:w-[60%] lg:text-[25px] lg:h-">
-                  <h1 className="text-[20px] md:text-2xl lg:text-4xl">
-                    ¿Está seguro/a de eliminar esta poción?
+                  <h1 className="text-[20px] text-center sm:text-2xl lg:text-4xl">
+                    ¿Está seguro/a de eliminar su consejo?
                   </h1>
                   <div className="flex">
                     <button
-                      className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold  flex justify-center mt-10 mr-5"
+                      className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold  flex justify-center mt-10 mr-5 sm:text-xl"
                       onClick={() => setIsOpen(!isOpen)}
                     >
                       Volver atrás
                     </button>
                     <button
-                      className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold  flex justify-center mt-10 mr-5"
+                      className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold  flex justify-center mt-10 mr-5 sm:text-xl"
                       onClick={() => handleDelete(tipId)}
                     >
                       Eliminar

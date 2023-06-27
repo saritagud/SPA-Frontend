@@ -1,6 +1,6 @@
 import { FaWindowClose } from "react-icons/fa";
 import { IoAddCircleSharp } from "react-icons/io5";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
 
 function ModalUpdate() {
@@ -19,11 +19,11 @@ function ModalUpdate() {
       image: Image,
     };
 
-    fetch("http://localhost:3000/postPromotion" , {
+    fetch("http://localhost:3000/postPromotion", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(dataForm),
     })
@@ -40,7 +40,7 @@ function ModalUpdate() {
       {isLoggedIn && (
         <div>
           <IoAddCircleSharp
-            className="text-right text-vino  text-4xl flex items-end justify-end mr-2 cursor-pointer lg:text-4xl"
+            className="text-right text-vino  text-4xl flex items-end justify-end mr-2 cursor-pointer lg:text-4xl sm:text-5xl"
             onClick={() => setIsOpen(true)}
           />
 
@@ -49,8 +49,8 @@ function ModalUpdate() {
               className="fixed flex justify-center items-center inset-0 backdrop-blur-sm bg-black bg-opacity-30 "
               onSubmit={submit}
             >
-              <section className="bg-cremaFondo rounded-xl p-5 w-[90%] ">
-                <div className="bg-cremaFondo text-vino border-2 border-vino  rounded-xl p-4 font-BreeSerif w-full text-azul flex flex-col justify-start items-center text-sm text-[15px] sm:w-[80%] sm:text-[20px] lg:w-[60%] lg:text-[25px] lg:h-">
+              <section className="bg-cremaFondo rounded-xl p-5 w-[90%] sm:w-[70%]">
+                <div className="bg-cremaFondo text-vino border-2 border-vino rounded-xl p-4 font-BreeSerif w-full text-azul flex flex-col justify-start items-center text-sm text-[15px]  ">
                   <div className="flex justify-end mb-3 w-full ">
                     <FaWindowClose
                       className=" text-2xl cursor-pointer lg:text-3xl xl:text-3xl"
@@ -61,7 +61,7 @@ function ModalUpdate() {
                     Descuento
                   </label>
                   <input
-                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  "
+                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  sm:text-lg"
                     onChange={(e) => setPromotion(e.target.value.trim())}
                     type="number"
                   />
@@ -70,7 +70,7 @@ function ModalUpdate() {
                     Servicio
                   </label>
                   <input
-                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  "
+                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  sm:text-lg"
                     onChange={(e) => setService(e.target.value.trim())}
                     type="text"
                   />
@@ -79,7 +79,7 @@ function ModalUpdate() {
                     Url de tu imagen
                   </label>
                   <input
-                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  "
+                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  sm:text-lg"
                     onChange={(e) => setImage(e.target.value.trim())}
                     type="text"
                   />
