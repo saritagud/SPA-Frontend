@@ -3,7 +3,7 @@ import { IoAddCircleSharp } from "react-icons/io5";
 import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
 function ModalAdd() {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const [Name, setName] = useState("");
@@ -21,6 +21,7 @@ function ModalAdd() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify(dataForm),
     })

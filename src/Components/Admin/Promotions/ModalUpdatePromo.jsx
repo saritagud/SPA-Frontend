@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
 
 function ModalUpdate({ promotionId }) {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const [Promotion, setPromotion] = useState("");
@@ -21,6 +21,7 @@ function ModalUpdate({ promotionId }) {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify(dataForm),
     })

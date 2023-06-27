@@ -6,19 +6,41 @@ import {
   Typography,
   IconButton,
 } from "@material-tailwind/react";
- 
+
 export default function Example() {
-  const { logout } = useContext(AuthContext);
+  const { logout, isLoggedIn } = useContext(AuthContext);
   const [openNav, setOpenNav] = useState(false);
+  /* const [temp, setTemp] = useState(""); */
 
   const handleLogout = () => {
     logout();
   };
- 
+
+  /* fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Venezuela/2023-06-27/2023-08-31?unitGroup=metric&include=hours%2Cdays&key=9R85TZ6EXKUMC55S5MKEYLHTP&contentType=json", {
+  "method": "GET",
+  "headers": {
+  }
+  })
+.then(response => {
+  console.log(response);
+})
+.then((data) => {
+  setTemp(data)
+  console.log(data);
+})
+.catch(err => {
+  console.error(err);
+}); */
+
+
+
   useEffect(() => {
-    window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
+    window.addEventListener(
+      "resize",
+      () => window.innerWidth >= 960 && setOpenNav(false)
+    );
   }, []);
- 
+
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col items-center gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 text-vino font-CinzelDecorative text-xl">
       <Typography
@@ -28,7 +50,7 @@ export default function Example() {
         className="p-1 text-2xl"
       >
         <a href="/blog" className="flex items-center">
-        Blog
+          Blog
         </a>
       </Typography>
       <Typography
@@ -37,9 +59,12 @@ export default function Example() {
         color="blue-gray"
         className="p-1 text-2xl"
       >
-        <a href="#" className="flex items-center">
-          Temperatura
-        </a>
+        <p className="flex items-center">
+        temp
+        </p>
+        <p className="flex items-center">
+        tem icon
+        </p>
       </Typography>
       <Typography
         as="li"
@@ -48,7 +73,7 @@ export default function Example() {
         className="p-1 text-2xl"
       >
         <a href="#" className="flex items-center justify-center">
-        <img src="src\assets\logo.png" className="w-[80%]"/>
+          <img src="src\assets\logo.png" className="w-[80%]" />
         </a>
       </Typography>
       <Typography
@@ -58,29 +83,33 @@ export default function Example() {
         className="p-1 text-2xl"
       >
         <a href="/" className="flex items-center">
-        Inicio
+          Inicio
         </a>
       </Typography>
 
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 text-2xl"
-      >
-        <button href="/" className="flex items-center" onClick={handleLogout}>
-        Cerrar sesion
-        </button>
-      </Typography>
+      {isLoggedIn && (
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 text-2xl"
+        >
+          <button
+            className="flex items-center bg-vino p-3 text-marronClaro rounded-xl text-lg"
+            onClick={handleLogout}
+          >
+            Cerrar sesion
+          </button>
+        </Typography>
+      )}
     </ul>
   );
- 
+
   return (
     <Navbar className="mx-auto  max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
       <div className="container  mx-auto flex items-center justify-between text-blue-gray-900">
-
         <div className="hidden  lg:block">{navList}</div>
-        
+
         <IconButton
           variant="text"
           className="ml-auto mt-5  h-3 w-2 text-vino hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -120,10 +149,7 @@ export default function Example() {
         </IconButton>
       </div>
       <MobileNav open={openNav}>
-        <div className="container mx-auto">
-          {navList}
-          
-        </div>
+        <div className="container mx-auto">{navList}</div>
       </MobileNav>
     </Navbar>
   );

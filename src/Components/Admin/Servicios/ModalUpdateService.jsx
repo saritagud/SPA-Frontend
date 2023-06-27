@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
 
 function ModalUpdate({ serviceId }) {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const [Price, setPrice] = useState("");
@@ -21,6 +21,7 @@ function ModalUpdate({ serviceId }) {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify(dataForm),
     })
@@ -43,7 +44,7 @@ function ModalUpdate({ serviceId }) {
 
           {isOpen && (
             <form
-              className="fixed flex justify-center items-center inset-0 backdrop-blur-sm bg-black bg-opacity-30 "
+              className="fixed z-40 flex justify-center items-center inset-0 backdrop-blur-sm bg-black bg-opacity-30 "
               onSubmit={submit}
             >
               <section className="bg-cremaFondo rounded-xl p-5 w-[90%] ">

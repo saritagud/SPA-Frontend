@@ -4,7 +4,8 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-console.log(isLoggedIn)
+  const [token, setToken] = useState('')
+  console.log(token)
   const login = (user, password) => {
     const dataLogin = {
       user: user,
@@ -20,12 +21,15 @@ console.log(isLoggedIn)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setToken(data.token)
+        localStorage.setItem('token', data.token)
       })
       .catch((error) => {
         console.error(error);
       });
     setIsLoggedIn(true);
-    localStorage.setItem('logged', isLoggedIn)
+    localStorage.setItem("logged", isLoggedIn);
+
   };
 
   const register = (user, email, password) => {
@@ -44,31 +48,38 @@ console.log(isLoggedIn)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        
+        setToken(data.token)
+        localStorage.setItem('token', token)
       })
       .catch((error) => {
         console.error(error);
       });
-      setIsLoggedIn(true);
-      localStorage.setItem('logged', true)
+    setIsLoggedIn(true);
+    localStorage.setItem("logged", true);
+    localStorage.setItem('token', token)
   };
 
   const logout = () => {
     setIsLoggedIn(false);
-    localStorage.removeItem('logged')
+    localStorage.removeItem("logged");
   };
 
   useEffect(() => {
-    const storedAdmin = localStorage.getItem('logged');
+    const storedAdmin = localStorage.getItem("logged");
     if (storedAdmin) {
       setIsLoggedIn(true);
     }
   }, []);
 
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+        setToken(storedToken)
+    }
+  }, []);
+
   return (
-    <AuthContext.Provider
-      value={{ isLoggedIn, login, register, logout }}
-    >
+    <AuthContext.Provider value={{ isLoggedIn, login, register, logout, token }}>
       {children}
     </AuthContext.Provider>
   );

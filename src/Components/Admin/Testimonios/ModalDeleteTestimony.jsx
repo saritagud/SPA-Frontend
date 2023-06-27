@@ -3,12 +3,15 @@ import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
 
 function ModalDelete({ testimonyId }) {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleDelete = (testimonyId) => {
     fetch("http://localhost:3000/deleteTestimony/" + testimonyId, {
       method: "DELETE",
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
     })
       .then((response) => response.json())
       .then((data) => {
