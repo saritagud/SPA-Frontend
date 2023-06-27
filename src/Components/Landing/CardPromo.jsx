@@ -23,7 +23,7 @@ function CardPromo() {
       {promotion.map((promotion) => (
         <section
           key={promotion._id}
-          className="bg-promoCard2 bg-cover bg-no-repeat rounded-3xl text-white flex flex-col justify-center items-center h-[45vh] mt-5 mb-16 w-[70%] sm:w-[60%] sm:h-[60vh] sm:mt-16"
+          className="bg-promoCard2 bg-cover bg-no-repeat rounded-3xl text-white flex flex-col justify-center items-center h-[45vh] mt-5 mb-16 w-[70%] sm:w-[60%] sm:h-[60vh] sm:mt-16  md:"
         >
           <div className="flex justify-end items-end w-full mt-3">
             <ModalUpdatePromo promotionId={promotion._id} />

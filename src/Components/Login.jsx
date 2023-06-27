@@ -15,30 +15,30 @@ function Login() {
   return (
     <>
 
-      <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-screen">
+      <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-screen  md:text-2xl">
       <Nav />
         <img src="src\assets\logoRostro.png" className="sm:w-[20%]"/>
-        <h1 className="text-3xl sm:text-4xl m-10">Administrador</h1>
+        <h1 className="text-3xl sm:text-4xl m-10  md:text-5xl">Administrador</h1>
 
         <form
-          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl sm:w-[60%] sm:text-2xl mb-32"
+          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl sm:w-[60%]  mb-32"
           onSubmit={submitLogin}
         >
-          <label className="text-start w-full mt-3 mb-3 ">Usuario</label>
+          <label className="text-start w-full mt-3 mb-3 sm:text-3xl">Usuario</label>
           <input
             type="text"
-            className="bg-vino rounded-xl p-2 text-white w-full"
+            className="bg-vino rounded-xl p-2 text-white w-full  md:text-2xl md:p-3"
             onChange={(e) => setUser(e.target.value.trim())}
           ></input>
 
-          <label className="text-start w-full mt-3 mb-3">Clave</label>
+          <label className="text-start w-full mt-3 mb-3 sm:text-3xl sm:mt-5">Clave</label>
           <input
             type="password"
-            className="bg-vino rounded-xl p-2 text-white w-full"
+            className="bg-vino rounded-xl p-2 text-white w-full  md:text-2xl md:p-3"
             onChange={(e) => setPassword(e.target.value.trim())}
           ></input>
 
-          <button className="bg-vino rounded-xl text-white m-8 p-3 w-[60%]">
+          <button className="bg-vino rounded-xl text-white m-8 p-3 w-[60%] md:text-3xl md:mt-16">
             Ingresar
           </button>
         </form>

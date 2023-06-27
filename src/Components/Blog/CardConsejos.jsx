@@ -31,7 +31,7 @@ function CardConsejos() {
               <ModalDeleteTips tipId={tips._id}/>
             </div>
             
-            <p className=" m-2 text-center  break-all"   dangerouslySetInnerHTML={{__html: tips.tip}} />
+            <p className=" m-2 text-center  break-all" dangerouslySetInnerHTML={{__html: tips.tip}} />
             
           </div>
         </section>

@@ -51,7 +51,7 @@ function ModalUpdate({ tipId }) {
                 <div className="bg-cremaFondo text-vino border-2 border-vino  rounded-xl p-4 font-BreeSerif w-full text-azul flex flex-col justify-start items-center text-sm text-[15px] ">
                   <div className="flex justify-end mb-3 w-full ">
                     <FaWindowClose
-                      className=" text-2xl cursor-pointer lg:text-3xl xl:text-3xl"
+                      className=" text-2xl cursor-pointer md:text-3xl "
                       onClick={() => setIsOpen(false)}
                     />
                   </div>
@@ -59,11 +59,11 @@ function ModalUpdate({ tipId }) {
                     Consejo de belleza
                   </label>
                   {<textarea
-                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full h-52 sm:text-xl"
+                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full h-52 sm:text-xl md:text-2xl md:p-3"
                     onChange={(e) => setTip(e.target.value.trim())}
                   /> }
 
-                  <button className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold w-[50%] flex justify-center m-5 lg:p-4 lg:w-[30%s] sm:text-xl">
+                  <button className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold w-[50%] flex justify-center m-5 sm:text-xl md:text-2xl md:mt-16">
                     Guardar
                   </button>
                 </div>

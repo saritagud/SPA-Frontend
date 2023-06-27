@@ -35,7 +35,7 @@ function Carrusel() {
           />
         </section>
       <ResponsiveCarousel
-        showArrows={false}
+        showArrows={true}
         showThumbs={false}
         showStatus={false}
         className="w-[80%] sm:w-[65%]"

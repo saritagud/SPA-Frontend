@@ -7,15 +7,16 @@ function ModalUpdate() {
   const { isLoggedIn, token } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
-  const [Price, setPrice] = useState("");
-  const [Service, setService] = useState("");
+  const [price, setPrice] = useState("");
+  const [service, setService] = useState("");
+
 
   const submit = (event) => {
     event.preventDefault();
 
     const dataForm = {
-      discount: Price,
-      service: Service,
+      service: service,
+      price: price,
     };
 
     fetch("http://localhost:3000/postService", {
@@ -52,30 +53,30 @@ function ModalUpdate() {
                 <div className="bg-cremaFondo text-vino border-2 border-vino  rounded-xl p-4 font-BreeSerif w-full text-azul flex flex-col justify-start items-center text-sm text-[15px] ">
                   <div className="flex justify-end mb-3 w-full ">
                     <FaWindowClose
-                      className=" text-2xl cursor-pointer lg:text-3xl xl:text-3xl"
+                      className=" text-2xl cursor-pointer md:text-3xl "
                       onClick={() => setIsOpen(false)}
                     />
                   </div>
 
-                  <label className="w-full text-left mb-3 text-xl mt-3">
+                  <label className="w-full text-left mb-3 text-xl mt-3 md:text-3xl md:mt-5">
                     Servicio
                   </label>
                   <input
-                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  sm:text-lg"
+                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  sm:text-lg md:text-2xl md:p-3"
                     onChange={(e) => setService(e.target.value.trim())}
                     type="text"
                   />
 
-                  <label className="w-full text-left mb-3 text-xl mt-5">
+                  <label className="w-full text-left mb-3 text-xl mt-5 md:text-3xl md:mt-5">
                     Precio
                   </label>
                   <input
-                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full sm:text-lg "
-                    onChange={(e) => setPrice(e.target.value.trim())}
+                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full sm:text-lg md:text-2xl md:p-3"
+                    onChange={(e) => setPrice(e.target.value)}
                     type="number"
                   />
 
-                  <button className="bg-vino p-3 rounded-md text-lg text-white font-BreeSerif font-semibold w-[50%] flex justify-center m-8 lg:p-4 lg:w-[30%s]">
+                  <button className="bg-vino p-3 rounded-md text-lg text-white font-BreeSerif font-semibold w-[50%] flex justify-center m-8 sm:text-xl md:text-2xl md:mt-16">
                     Guardar
                   </button>
                 </div>

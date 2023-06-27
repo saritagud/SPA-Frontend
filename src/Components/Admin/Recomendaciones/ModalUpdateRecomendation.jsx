@@ -51,11 +51,11 @@ function ModalUpdate({ recommendationId }) {
                 <div className="bg-cremaFondo text-vino border-2 border-vino  rounded-xl p-4 font-BreeSerif w-full text-azul flex flex-col justify-start items-center text-sm text-[15px] ">
                   <div className="flex justify-end mb-3 w-full ">
                     <FaWindowClose
-                      className=" text-2xl cursor-pointer lg:text-3xl xl:text-3xl"
+                      className=" text-2xl cursor-pointer  md:text-3xl"
                       onClick={() => setIsOpen(false)}
                     />
                   </div>
-                  <label className="w-full text-left mb-3 text-xl ">
+                  <label className="w-full text-left mb-3 text-xl md:text-3xl md:mt-5">
                     Nombre
                   </label>
                   <input
@@ -64,7 +64,7 @@ function ModalUpdate({ recommendationId }) {
                     type="text"
                   />
 
-                  <label className="w-full text-left mb-3 text-xl ">
+                  <label className="w-full text-left mb-3 text-xl md:text-3xl md:mt-5">
                     Descripcion
                   </label>
                   <input
@@ -73,7 +73,7 @@ function ModalUpdate({ recommendationId }) {
                     type="text"
                   />
 
-                  <button className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold w-[50%] flex justify-center m-5 lg:p-4 lg:w-[30%s] sm:text-xl">
+                  <button className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold w-[50%] flex justify-center m-5 lg:p-4 lg:w-[30%s] sm:text-xl md:text-2xl md:mt-14">
                     Guardar
                   </button>
                 </div>

@@ -66,18 +66,18 @@ function Reservaciones() {
   return (
     <>
     <Nav/>
-      <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-[100vh]">
+      <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-[100vh] gap-8">
         <img src="src\assets\logoRostro.png" />
-        <h1 className="text-3xl">Agenda tu cita</h1>
+        <h1 className="text-3xl md:text-4xl">Agenda tu cita</h1>
 
         <form
-          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl w-[80%] sm:w-[60%]"
+          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl w-[80%] sm:w-[60%] md:text-2xl"
           onSubmit={submitReservation}
         >
           <label className="text-start w-full mt-3 mb-3 ">Nombre</label>
           <input
             type="text"
-            className="bg-vino rounded-xl p-2 text-white w-full"
+            className="bg-vino rounded-xl p-2 text-white w-full md:text-2xl"
             onChange={(e) => setName(e.target.value.trim())}
           ></input>
 
@@ -86,14 +86,14 @@ function Reservaciones() {
           </label>
           <input
             type="email"
-            className="bg-vino rounded-xl p-2 text-white w-full"
+            className="bg-vino rounded-xl p-2 text-white w-full md:text-2xl"
             onChange={(e) => setEmail(e.target.value.trim())}
           ></input>
 
           <label className="text-start w-full mt-3 mb-3">Servicio</label>
           <select
             onChange={(e) => setServiceSelect(e.target.value.trim())}
-            className="bg-vino rounded-xl p-3 text-white text-lg w-full"
+            className="bg-vino rounded-xl p-3 text-white text-lg w-full md:text-2xl"
           >
           <option>Selecciona tu servicio</option>
             {service.map((service) => (
@@ -107,7 +107,7 @@ function Reservaciones() {
 
           <select
             onChange={(e) => setScheduleSelect(e.target.value.trim())}
-            className="bg-vino rounded-xl p-3 text-white text-lg w-full"
+            className="bg-vino rounded-xl p-3 text-white text-lg w-full md:text-2xl"
           >
           <option>Selecciona tu horario</option>
             {schedule.map((schedule) => (
@@ -120,11 +120,11 @@ function Reservaciones() {
           <label className="text-start w-full mt-3 mb-3">Telefono</label>
           <input
             type="number"
-            className="bg-vino rounded-xl p-2 text-white w-full"
+            className="bg-vino rounded-xl p-2 text-white w-full md:text-2xl"
             onChange={(e) => setPhone(e.target.value.trim())}
           ></input>
 
-          <button className="bg-vino rounded-xl text-white m-8 p-3 w-[60%] sm:w-[50%]">
+          <button className="bg-vino rounded-xl text-white m-8 p-3 w-[60%] sm:w-[50%] md:text-2xl">
             Resevar
           </button>
         </form>
