@@ -12,11 +12,11 @@ function Landing() {
   return (
     <>
       <Nav />
-      <section className="m-5 -mt-6 min-h-screen text-vino flex flex-col items-center">
-        <h1 className="font-CinzelDecorative text-vino text-3xl  mt-10 font-bold">
+      <section className="m-5 -mt-6 min-h-screen text-vino flex flex-col items-center gap-5">
+        <h1 className="font-CinzelDecorative text-vino text-3xl  mt-10 font-bold sm:text-4xl">
           Donde la relajación y la belleza se unen en armonía
         </h1>
-        <p className="mt-3 mb-3 font-BreeSerif text-lg">
+        <p className="mt-3 mb-3 font-BreeSerif text-lg sm:text-2xl ">
           Adéntrate en un refugio de tranquilidad y descubre un mundo donde la
           serenidad y la belleza se entrelazan en perfecta armonía. Nuestro spa
           te invita a sumergirte en un oasis de calma, un santuario dedicado a
@@ -24,13 +24,13 @@ function Landing() {
           exterior.
         </p>
 
-        <button className="bg-vino p-3 text-marronClaro rounded-xl font-CinzelDecorative text-xl m-5 w-1/2">
+        <button className="bg-vino p-3 text-marronClaro rounded-xl font-CinzelDecorative text-xl m-5  sm:w-[40%] sm:text-3xl">
           <a href="/reservacion">Reserva ahora</a>
         </button>
 
         <img
           src="src\assets\sectionLANDING.jpg"
-          className="rounded-xl h-[50vh]"
+          className="rounded-xl h-[50vh] sm:h-[70vh]"
         />
       </section>
 
@@ -40,11 +40,11 @@ function Landing() {
         <div className="border-t border-vino m-4 lg:mr-14 lg:ml-14"></div>
       </section>
 
-      <section className="flex flex-col justify-center items-center ">
+      <section className="flex flex-col justify-center items-center gap-8 ">
         <div className="flex justify-end items-end w-full mr-5">
           <ModalAddPromo />
         </div>
-        <h1 className="font-CinzelDecorative text-3xl text-vino mb-16">
+        <h1 className="font-CinzelDecorative text-3xl text-vino mb-16 sm:text-4xl ">
           Promociones
         </h1>
 
@@ -52,7 +52,7 @@ function Landing() {
       </section>
 
       <section className="-mt-10">
-        <div className="border-t border-vino m-4 lg:mr-14 lg:ml-14"></div>
+        <div className="border-t border-vino m-4 lg:mr-14 lg:ml-14 "></div>
 
         <div className="border-t border-vino m-4 lg:mr-14 lg:ml-14"></div>
       </section>
@@ -62,7 +62,7 @@ function Landing() {
           <ModalAddService />
         </div>
 
-        <h1 className="font-CinzelDecorative text-3xl text-vino mb-8">
+        <h1 className="font-CinzelDecorative text-3xl text-vino mb-8 sm:text-4xl">
           Servicios
         </h1>
 
@@ -76,7 +76,7 @@ function Landing() {
       </section>
 
       <section className="flex flex-col justify-center items-center ">
-        <h1 className="font-CinzelDecorative text-3xl text-vino ">Horario</h1>
+        <h1 className="font-CinzelDecorative text-3xl text-vino  sm:text-4xl">Horario</h1>
         <CardHorario />
       </section>
 
@@ -86,11 +86,11 @@ function Landing() {
         <div className="border-t border-vino m-4 lg:mr-14 lg:ml-14"></div>
       </section>
 
-      <section className="flex flex-col justify-center items-center">
+      <section className="flex flex-col justify-center items-center gap-8">
         <div className="flex justify-end items-end w-full mr-5">
           <ModalAddTestimony />
         </div>
-        <h1 className="font-CinzelDecorative text-3xl text-vino ">
+        <h1 className="font-CinzelDecorative text-3xl text-center text-vino sm:text-4xl">
           Testimonios
         </h1>
         <CardTestimonios />

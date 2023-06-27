@@ -10,11 +10,11 @@ function Blog() {
   return (
     <>
     <Nav/>
-      <section className="m-5 min-h-[100vh] text-vino">
-        <h1 className="font-CinzelDecorative text-vino text-3xl  mt-10 font-bold">
+      <section className="p-8 min-h-[100vh] text-vino flex flex-col gap-8">
+        <h1 className="font-CinzelDecorative text-vino text-3xl   font-bold sm:text-5xl">
           Salud y Belleza
         </h1>
-        <p className="mt-3 mb-3 font-BreeSerif text-lg">
+        <p className=" font-BreeSerif text-lg sm:text-2xl">
           Adéntrate en un refugio de tranquilidad y descubre un mundo donde la
           serenidad y la belleza se entrelazan en perfecta armonía. Nuestro spa
           te invita a sumergirte en un oasis de calma, un santuario dedicado a
@@ -24,7 +24,7 @@ function Blog() {
 
         <img
           src="src\assets\sectionBLOG.jpg"
-          className="rounded-xl h-[60vh] w-[100%]"
+          className="rounded-xl h-[60vh] w-[100%] sm:h-[80vh]"
         />
       </section>
 
@@ -34,11 +34,11 @@ function Blog() {
         <div className="border-t border-vino m-4 lg:mr-14 lg:ml-14"></div>
       </section>
 
-      <section className="flex flex-col justify-center items-center">
+      <section className="flex flex-col justify-center items-center gap-8">
       <div className="flex justify-end w-full">
         <ModalAddRecomendation/>
       </div>
-        <h1 className="font-CinzelDecorative text-3xl text-center text-vino ">
+        <h1 className="font-CinzelDecorative text-3xl text-center text-vino w-[80%] sm:text-4xl">
           ¿Cuales son los mejores alimentos para tu piel?
         </h1>
 
@@ -51,11 +51,11 @@ function Blog() {
         <div className="border-t border-vino m-4 lg:mr-14 lg:ml-14"></div>
       </section>
 
-      <section className="flex flex-col justify-center items-center ">
+      <section className="flex flex-col justify-center items-center gap-8">
       <div className="flex justify-end w-full">
         <ModalAddTips/>
       </div>
-        <h1 className="font-CinzelDecorative text-3xl text-vino ">
+        <h1 className="font-CinzelDecorative text-3xl text-vino sm:text-4xl">
           Consejos de belleza
         </h1>
 

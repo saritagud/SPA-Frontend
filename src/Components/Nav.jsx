@@ -10,29 +10,9 @@ import {
 export default function Example() {
   const { logout, isLoggedIn } = useContext(AuthContext);
   const [openNav, setOpenNav] = useState(false);
-  /* const [temp, setTemp] = useState(""); */
-
   const handleLogout = () => {
     logout();
   };
-
-  /* fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Venezuela/2023-06-27/2023-08-31?unitGroup=metric&include=hours%2Cdays&key=9R85TZ6EXKUMC55S5MKEYLHTP&contentType=json", {
-  "method": "GET",
-  "headers": {
-  }
-  })
-.then(response => {
-  console.log(response);
-})
-.then((data) => {
-  setTemp(data)
-  console.log(data);
-})
-.catch(err => {
-  console.error(err);
-}); */
-
-
 
   useEffect(() => {
     window.addEventListener(
@@ -42,45 +22,28 @@ export default function Example() {
   }, []);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col items-center gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 text-vino font-CinzelDecorative text-xl">
+    <ul className="mb-4 mt-2 flex flex-col items-center gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 text-vino font-CinzelDecorative text-xl ">
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 text-2xl"
+        className="p-1 text-2xl sm:text-3xl"
       >
         <a href="/blog" className="flex items-center">
           Blog
         </a>
       </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 text-2xl"
-      >
-        <p className="flex items-center">
-        temp
-        </p>
-        <p className="flex items-center">
-        tem icon
-        </p>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 text-2xl"
-      >
+
+      <Typography as="li" variant="small" color="blue-gray" className="p-1 ">
         <a href="#" className="flex items-center justify-center">
-          <img src="src\assets\logo.png" className="w-[80%]" />
+          <img src="src\assets\logo.png" className="w-[80%] sm:w-[50%]" />
         </a>
       </Typography>
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 text-2xl"
+        className="p-1 text-2xl sm:text-3xl"
       >
         <a href="/" className="flex items-center">
           Inicio
@@ -95,7 +58,7 @@ export default function Example() {
           className="p-1 text-2xl"
         >
           <button
-            className="flex items-center bg-vino p-3 text-marronClaro rounded-xl text-lg"
+            className="flex items-center bg-vino p-3 text-marronClaro rounded-xl text-lg sm:text-2xl"
             onClick={handleLogout}
           >
             Cerrar sesion
@@ -112,7 +75,7 @@ export default function Example() {
 
         <IconButton
           variant="text"
-          className="ml-auto mt-5  h-3 w-2 text-vino hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          className="ml-auto mt-5 h-3 w-2 text-vino hover:bg-transparent focus:bg-transparent active:bg-transparent sm:mr-8 lg:hidden"
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >

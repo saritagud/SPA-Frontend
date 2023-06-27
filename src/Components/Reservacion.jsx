@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Nav from "./Nav"
 
 function Reservaciones() {
   const [name, setName] = useState("");
@@ -64,18 +65,19 @@ function Reservaciones() {
   };
   return (
     <>
+    <Nav/>
       <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-[100vh]">
         <img src="src\assets\logoRostro.png" />
         <h1 className="text-3xl">Agenda tu cita</h1>
 
         <form
-          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl"
+          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl w-[80%] sm:w-[60%]"
           onSubmit={submitReservation}
         >
-          <label className="text-start w-full mt-3 mb-3">Nombre</label>
+          <label className="text-start w-full mt-3 mb-3 ">Nombre</label>
           <input
             type="text"
-            className="bg-vino rounded-xl p-2 text-white"
+            className="bg-vino rounded-xl p-2 text-white w-full"
             onChange={(e) => setName(e.target.value.trim())}
           ></input>
 
@@ -84,7 +86,7 @@ function Reservaciones() {
           </label>
           <input
             type="email"
-            className="bg-vino rounded-xl p-2 text-white"
+            className="bg-vino rounded-xl p-2 text-white w-full"
             onChange={(e) => setEmail(e.target.value.trim())}
           ></input>
 
@@ -118,11 +120,11 @@ function Reservaciones() {
           <label className="text-start w-full mt-3 mb-3">Telefono</label>
           <input
             type="number"
-            className="bg-vino rounded-xl p-2 text-white"
+            className="bg-vino rounded-xl p-2 text-white w-full"
             onChange={(e) => setPhone(e.target.value.trim())}
           ></input>
 
-          <button className="bg-vino rounded-xl text-white m-8 p-3 w-[60%]">
+          <button className="bg-vino rounded-xl text-white m-8 p-3 w-[60%] sm:w-[50%]">
             Resevar
           </button>
         </form>

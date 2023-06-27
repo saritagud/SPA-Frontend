@@ -2,6 +2,7 @@ import { FaWindowClose } from "react-icons/fa";
 import { IoAddCircleSharp } from "react-icons/io5";
 import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
+import { Editor } from '@tinymce/tinymce-react';
 
 function ModalAdd() {
   const { isLoggedIn, token } = useContext(AuthContext);
@@ -20,7 +21,7 @@ function ModalAdd() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(dataForm),
     })
@@ -57,9 +58,32 @@ function ModalAdd() {
                   <label className="w-full text-left mb-3 text-xl ">
                     Consejo de belleza
                   </label>
-                  <textarea
+                  {/* <textarea
                     className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full  h-52"
                     onChange={(e) => setTip(e.target.value.trim())}
+                  /> */}
+
+                  <Editor
+                    textareaName="Tip"
+                    initialValue="<p></p>"
+                    init={{
+                      height: 300,
+                      menubar: true,
+                      plugins: [
+                        "advlist autolink lists link image charmap print preview anchor",
+                        "searchreplace visualblocks code fullscreen",
+                        "insertdatetime media table paste code help wordcount",
+                      ],
+                      toolbar:
+                        "undo redo | formatselect | " +
+                        "bold italic backcolor | alignleft aligncenter " +
+                        "alignright alignjustify | bullist numlist outdent indent | " +
+                        "removeformat | help",
+                      content_style:
+                        "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                    }}
+                    onEditorChange={(newText) => setTip(newText)}
+                    
                   />
 
                   <button className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold w-[50%] flex justify-center m-5 lg:p-4 lg:w-[30%s]">
@@ -73,7 +97,6 @@ function ModalAdd() {
       )}
     </>
   );
-  
 }
 
 export default ModalAdd;

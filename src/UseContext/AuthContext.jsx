@@ -62,6 +62,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("logged");
+    localStorage.removeItem("token");
   };
 
   useEffect(() => {

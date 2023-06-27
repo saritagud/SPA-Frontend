@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ModalUpdateTips from "../Admin/Tips/ModalUpdateTips";
 import ModalDeleteTips from "../Admin/Tips/ModalDeleteTips";
+
 function CardConsejos() {
   const [tips, setTips] = useState([]);
 
@@ -22,16 +23,16 @@ function CardConsejos() {
       {tips.map((tips) => (
         <section
           key={tips._id}
-          className="bg-vino  m-5 text-marronClaro p-5 rounded-3xl font-BreeSerif w-[80%]"
+          className="bg-vino  m-5 text-marronClaro p-5 rounded-3xl font-BreeSerif w-[80%] sm:w-[60%] sm:text-2xl"
         >
           <div className="border-solid border-2 border-marronClaro rounded-3xl min-h-[50vh]  p-3 flex flex-col items-center">
             <div className="flex justify-end items-end w-full ">
               <ModalUpdateTips tipId={tips._id}/>
               <ModalDeleteTips tipId={tips._id}/>
             </div>
-            <p className=" m-2 text-center ">
-              {tips.tip}
-            </p>
+            
+            <p className=" m-2 text-center  break-all"   dangerouslySetInnerHTML={{__html: tips.tip}} />
+            
           </div>
         </section>
       ))}

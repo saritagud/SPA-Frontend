@@ -13,20 +13,20 @@ function Registro() {
   };
   return (
     <>
-      <Nav />
 
-      <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-[100vh]">
-        <img src="src\assets\logoRostro.png" />
-        <h1 className="text-3xl">Registro</h1>
+      <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-screen">
+      <Nav />
+        <img src="src\assets\logoRostro.png" className="sm:w-[20%]"/>
+        <h1 className="text-3xl sm:text-4xl m-10">Registro</h1>
 
         <form
-          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl"
+          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl sm:w-[60%] sm:text-2xl mb-32"
           onSubmit={submitLogin}
         >
           <label className="text-start w-full mt-3 mb-3">Usuario</label>
           <input
             type="text"
-            className="bg-vino rounded-xl p-2 text-white"
+            className="bg-vino rounded-xl p-2 text-white w-full"
             onChange={(e) => setUser(e.target.value.trim())}
           ></input>
 
@@ -35,14 +35,14 @@ function Registro() {
           </label>
           <input
             type="email"
-            className="bg-vino rounded-xl p-2 text-white"
+            className="bg-vino rounded-xl p-2 text-white w-full"
             onChange={(e) => setEmail(e.target.value.trim())}
           ></input>
 
           <label className="text-start w-full mt-3 mb-3">Clave</label>
           <input
             type="password"
-            className="bg-vino rounded-xl p-2 text-white"
+            className="bg-vino rounded-xl p-2 text-white w-full"
             onChange={(e) => setPassword(e.target.value.trim())}
           ></input>
 
