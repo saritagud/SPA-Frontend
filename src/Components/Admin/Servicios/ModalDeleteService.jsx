@@ -1,8 +1,10 @@
 import {  FaTrash } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "/src/UseContext/AuthContext";
 
 function ModalDeleteService({serviceId}) {
   const [isOpen, setIsOpen] = useState(false);
+  const { isLoggedIn } = useContext(AuthContext);
 
   const handleDelete = (serviceId) => {
     fetch("http://localhost:3000/deleteService/" + serviceId, {
@@ -19,6 +21,8 @@ function ModalDeleteService({serviceId}) {
   };
   return (
     <>
+    {isLoggedIn && (
+      <div>
       <FaTrash
         className="text-right text-xl  flex items-end justify-end mt-3 cursor-pointer lg:text-4xl"
         onClick={() => setIsOpen(true)}
@@ -47,6 +51,9 @@ function ModalDeleteService({serviceId}) {
           </section>
         </section>
       )}
+      </div>
+    )}
+      
     </>
   );
 }

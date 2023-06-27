@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "/src/UseContext/AuthContext";
 import {
   Navbar,
   MobileNav,
@@ -7,7 +8,12 @@ import {
 } from "@material-tailwind/react";
  
 export default function Example() {
+  const { logout } = useContext(AuthContext);
   const [openNav, setOpenNav] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+  };
  
   useEffect(() => {
     window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
@@ -54,6 +60,17 @@ export default function Example() {
         <a href="/" className="flex items-center">
         Inicio
         </a>
+      </Typography>
+
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 text-2xl"
+      >
+        <button href="/" className="flex items-center" onClick={handleLogout}>
+        Cerrar sesion
+        </button>
       </Typography>
     </ul>
   );
