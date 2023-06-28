@@ -23,7 +23,7 @@ function CardRecomendaciones() {
       {recommendation.map((recommendation) => (
         <section
           key={recommendation._id}
-          className="flex flex-col items-center w-[80%] justify-center"
+          className="flex flex-col items-center w-[80%] justify-center lg:w-[60%]"
         >
           <div className="flex justify-end w-full mt-5">
             <ModalUpdateRecomendation recommendationId={recommendation._id} />

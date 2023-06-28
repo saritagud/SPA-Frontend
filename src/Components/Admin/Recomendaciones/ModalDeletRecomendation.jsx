@@ -27,13 +27,13 @@ function ModalDelete({ recommendationId }) {
       {isLoggedIn && (
         <div>
           <FaTrash
-            className="text-right text-2xl text-vino  flex items-end justify-end mr-2 cursor-pointer sm:text-2xl lg:text-4xl"
+            className="text-right text-2xl text-vino  flex items-end justify-end mr-2 cursor-pointer sm:text-2xl xl:text-3xl"
             onClick={() => setIsOpen(true)}
           />
 
           {isOpen && (
             <section className="fixed flex justify-center items-center inset-0 backdrop-blur-sm bg-black bg-opacity-30 ">
-              <section className="bg-cremaFondo rounded-xl p-5 w-[90%] sm:w-[70%]">
+              <section className="bg-cremaFondo rounded-xl p-5 w-[90%] sm:w-[70%] xl:w-[50%] ">
                 <div className="bg-cremaFondo text-vino border-2 border-vino  rounded-xl p-4 font-BreeSerif w-full text-azul flex flex-col justify-center items-center text-sm text-[15px]">
                   <h1 className="text-[20px] text-center sm:text-2xl md:text-3xl ">
                     ¿Está seguro/a de eliminarlo?

@@ -22,7 +22,7 @@ export default function Example() {
   }, []);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col items-center gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:justify-around w-full lg:text-xl text-vino font-CinzelDecorative text-xl ">
+    <ul className="mb-4 mt-2 flex flex-col items-center gap-2  lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:justify-between w-full lg:text-xl text-vino font-CinzelDecorative text-xl xl:gap-24 ">
       <Typography
         as="li"
         variant="small"
@@ -58,7 +58,7 @@ export default function Example() {
           className="p-1 text-2xl lg:text-4xl "
         >
           <button
-            className="flex items-center bg-vino p-3 text-marronClaro rounded-xl text-lg sm:text-2xl lg:p-4 lg:ml-12"
+            className="flex items-center bg-vino p-3 text-marronClaro rounded-xl text-lg sm:text-2xl lg:p-4 lg:ml-12 xl:ml-9"
             onClick={handleLogout}
           >
             Cerrar sesion

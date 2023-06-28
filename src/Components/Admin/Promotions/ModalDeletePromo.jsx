@@ -33,7 +33,7 @@ function ModalDelete({ promotionId }) {
 
           {isOpen && (
             <section className="fixed flex justify-center items-center inset-0 backdrop-blur-sm bg-black bg-opacity-30 ">
-              <section className="bg-cremaFondo rounded-xl p-5 w-[90%] sm:w-[70%]">
+              <section className="bg-cremaFondo rounded-xl p-5 w-[90%] sm:w-[70%] xl:w-[50%] ">
                 <div className="bg-cremaFondo text-vino border-2 border-vino  rounded-xl p-4 font-BreeSerif w-full text-azul flex flex-col justify-center items-center text-sm text-[15px] ">
                   <h1 className="text-[20px] sm:text-2xl text-center md:text-3xl ">
                     ¿Está seguro/a de eliminar esta promocion?

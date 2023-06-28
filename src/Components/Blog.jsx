@@ -28,7 +28,7 @@ function Blog() {
 
         <img
           src="src\assets\sectionBLOG.jpg"
-          className="rounded-xl h-[60vh] w-[100%] sm:h-[80vh]"
+          className="rounded-xl h-[60vh] w-[100%] sm:h-[80vh] lg:h-[90vh] lg:object-cover"
         />
       </section>
 

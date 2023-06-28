@@ -43,7 +43,7 @@ function ModalUpdate({ testimonyId }) {
               className="fixed flex justify-center items-center inset-0 backdrop-blur-sm bg-black bg-opacity-30 "
               onSubmit={submit}
             >
-              <section className="bg-cremaFondo rounded-xl p-5 w-[90%] sm:w-[70%]">
+              <section className="bg-cremaFondo rounded-xl p-5 w-[90%] sm:w-[70%] xl:w-[50%] ">
                 <div className="bg-cremaFondo text-vino border-2 border-vino  rounded-xl p-4 font-BreeSerif w-full text-azul flex flex-col justify-start items-center text-sm text-[15px] ">
                   <div className="flex justify-end mb-3 w-full ">
                     <FaWindowClose
