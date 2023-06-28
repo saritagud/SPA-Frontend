@@ -24,7 +24,7 @@ function Carrusel() {
 
   return (
     <>
-    <section className="flex justify-end w-full mr-20 mb-3 text-vino sm:mr-52">
+    <section className="flex justify-end w-full mr-20 mb-3 text-vino sm:mr-52 lg:w-[70%]">
           <ModalUpdateService
             serviceId={selectedService}
             onActionComplete={() => setSelectedService(null)}
@@ -38,7 +38,7 @@ function Carrusel() {
         showArrows={true}
         showThumbs={false}
         showStatus={false}
-        className="w-[80%] sm:w-[65%]"
+        className="w-[80%] sm:w-[65%] lg:w-[50%]"
       >
         {service.map((service) => (
           <div
@@ -49,9 +49,9 @@ function Carrusel() {
             <img
               src="src\assets\carrusel.jpg"
               alt="Image"
-              className=" rounded-t-xl h-[50vh] sm:h-[65vh]"
+              className=" rounded-t-xl h-[50vh] sm:h-[65vh] lg:h-[70vh]"
             />
-            <div className="bg-vino rounded-b-xl text-white font-BreeSerif p-4 mb-8 text-start sm:text-2xl  break-all">
+            <div className="bg-vino rounded-b-xl text-white font-BreeSerif p-4 mb-8 text-start sm:text-2xl break-all lg:text-3xl">
               <p>{service.service}</p>
               <p>{service.price}</p>
 

@@ -34,7 +34,7 @@ function ModalUpdate({ testimonyId }) {
       
         <div>
           <FaPencilAlt
-            className="text-right text-2xl flex items-end justify-end mr-2 cursor-pointer lg:text-4xl"
+            className="text-right text-2xl flex items-end justify-end mr-2 cursor-pointer lg:text-3xl"
             onClick={() => setIsOpen(true)}
           />
 

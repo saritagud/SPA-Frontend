@@ -38,7 +38,7 @@ function ModalUpdate({ promotionId }) {
       {isLoggedIn && (
         <div>
           <FaPencilAlt
-            className="text-right text-xl flex items-end justify-end mr-2 cursor-pointer sm:text-2xl lg:text-4xl"
+            className="text-right text-xl flex items-end justify-end mr-2 cursor-pointer sm:text-2xl "
             onClick={() => setIsOpen(true)}
           />
 

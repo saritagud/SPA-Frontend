@@ -71,13 +71,13 @@ function Reservaciones() {
         <h1 className="text-3xl md:text-4xl">Agenda tu cita</h1>
 
         <form
-          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl w-[80%] sm:w-[60%] md:text-2xl"
+          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl w-[80%] sm:w-[60%] md:text-2xl lg:w-[50%]"
           onSubmit={submitReservation}
         >
           <label className="text-start w-full mt-3 mb-3 ">Nombre</label>
           <input
             type="text"
-            className="bg-vino rounded-xl p-2 text-white w-full md:text-2xl"
+            className="bg-vino rounded-xl p-2 text-white w-full md:text-2xl lg:p-3"
             onChange={(e) => setName(e.target.value.trim())}
           ></input>
 
@@ -86,14 +86,14 @@ function Reservaciones() {
           </label>
           <input
             type="email"
-            className="bg-vino rounded-xl p-2 text-white w-full md:text-2xl"
+            className="bg-vino rounded-xl p-2 text-white w-full md:text-2xl lg:p-3"
             onChange={(e) => setEmail(e.target.value.trim())}
           ></input>
 
           <label className="text-start w-full mt-3 mb-3">Servicio</label>
           <select
             onChange={(e) => setServiceSelect(e.target.value.trim())}
-            className="bg-vino rounded-xl p-3 text-white text-lg w-full md:text-2xl"
+            className="bg-vino rounded-xl p-3 text-white text-lg w-full md:text-2xl lg:p-3"
           >
           <option>Selecciona tu servicio</option>
             {service.map((service) => (
@@ -107,7 +107,7 @@ function Reservaciones() {
 
           <select
             onChange={(e) => setScheduleSelect(e.target.value.trim())}
-            className="bg-vino rounded-xl p-3 text-white text-lg w-full md:text-2xl"
+            className="bg-vino rounded-xl p-3 text-white text-lg w-full md:text-2xl lg:p-3"
           >
           <option>Selecciona tu horario</option>
             {schedule.map((schedule) => (
@@ -117,10 +117,10 @@ function Reservaciones() {
             ))}
           </select>
 
-          <label className="text-start w-full mt-3 mb-3">Telefono</label>
+          <label className="text-start w-full mt-3 mb-3 ">Telefono</label>
           <input
             type="number"
-            className="bg-vino rounded-xl p-2 text-white w-full md:text-2xl"
+            className="bg-vino rounded-xl p-2 text-white w-full md:text-2xl lg:p-3"
             onChange={(e) => setPhone(e.target.value.trim())}
           ></input>
 

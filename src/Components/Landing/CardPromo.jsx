@@ -19,11 +19,11 @@ function CardPromo() {
       console.error(error);
     });
   return (
-    <>
+    <div className="w-full lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-10">
       {promotion.map((promotion) => (
         <section
           key={promotion._id}
-          className="bg-promoCard2 bg-cover bg-no-repeat rounded-3xl text-white flex flex-col justify-center items-center h-[45vh] mt-5 mb-16 w-[70%] sm:w-[60%] sm:h-[60vh] sm:mt-16  md:"
+          className="bg-promoCard2 bg-cover bg-no-repeat rounded-3xl text-white flex flex-col justify-center items-center h-[45vh] mt-5 mb-16 w-[70%] sm:w-[60%] sm:h-[60vh] sm:mt-16  lg:w-[30%]  "
         >
           <div className="flex justify-end items-end w-full mt-3">
             <ModalUpdatePromo promotionId={promotion._id} />
@@ -46,7 +46,7 @@ function CardPromo() {
         </section>
       ))}
         
-    </>
+    </div>
   );
 }
 

@@ -17,11 +17,11 @@ function Login() {
 
       <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-screen  md:text-2xl">
       <Nav />
-        <img src="src\assets\logoRostro.png" className="sm:w-[20%]"/>
+        <img src="src\assets\logoRostro.png" className="sm:w-[20%] lg:w-[10%]"/>
         <h1 className="text-3xl sm:text-4xl m-10  md:text-5xl">Administrador</h1>
 
         <form
-          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl sm:w-[60%]  mb-32"
+          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl sm:w-[60%]  mb-32 lg:w-[50%]"
           onSubmit={submitLogin}
         >
           <label className="text-start w-full mt-3 mb-3 sm:text-3xl">Usuario</label>

@@ -35,7 +35,7 @@ function ModalAdd() {
     <>
         <div>
           <IoAddCircleSharp
-            className="text-right text-vino text-4xl flex items-end justify-end mr-2 cursor-pointer sm:text-5xl"
+            className="text-right text-vino text-4xl flex items-end justify-end mr-2 cursor-pointer sm:text-5xl lg:text-6xl"
             onClick={() => setIsOpen(true)}
           />
 

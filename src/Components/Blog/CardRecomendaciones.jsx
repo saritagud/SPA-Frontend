@@ -23,7 +23,7 @@ function CardRecomendaciones() {
       {recommendation.map((recommendation) => (
         <section
           key={recommendation._id}
-          className="flex flex-col items-center w-[80%]"
+          className="flex flex-col items-center w-[80%] justify-center"
         >
           <div className="flex justify-end w-full mt-5">
             <ModalUpdateRecomendation recommendationId={recommendation._id} />
@@ -33,7 +33,7 @@ function CardRecomendaciones() {
           <div className="w-full flex flex-col items-center sm:flex-row ">
             <img
               src="src\assets\recomen.jpg"
-              className="w-[70%] rounded-[100%] h-[25vh] mt-5 sm:w-[50%]"
+              className="w-[70%] rounded-[100%] h-[25vh] mt-5 sm:w-[50%] lg:w-[30%]"
             />
 
             <div className="text-center m-3 font-BreeSerif text-vino">

@@ -40,7 +40,7 @@ function ModalUpdate() {
       {isLoggedIn && (
         <div>
           <IoAddCircleSharp
-            className="text-right text-vino  text-4xl flex items-end justify-end mr-2 cursor-pointer lg:text-4xl sm:text-5xl"
+            className="text-right text-vino  text-4xl flex items-end justify-end mr-2 cursor-pointer  sm:text-5xl lg:text-6xl"
             onClick={() => setIsOpen(true)}
           />
 
@@ -49,7 +49,7 @@ function ModalUpdate() {
               className="fixed flex justify-center items-center inset-0 backdrop-blur-sm bg-black bg-opacity-30 "
               onSubmit={submit}
             >
-              <section className="bg-cremaFondo rounded-xl p-5 w-[90%] sm:w-[70%]">
+              <section className="bg-cremaFondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[60%]">
                 <div className="bg-cremaFondo text-vino border-2 border-vino rounded-xl p-4 font-BreeSerif w-full text-azul flex flex-col justify-start items-center text-sm text-[15px]  ">
                   <div className="flex justify-end mb-3 w-full ">
                     <FaWindowClose

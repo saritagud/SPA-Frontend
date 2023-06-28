@@ -16,11 +16,11 @@ function Registro() {
 
       <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-screen">
       <Nav />
-        <img src="src\assets\logoRostro.png" className="sm:w-[20%]"/>
-        <h1 className="text-3xl sm:text-4xl m-10 md:text-5xl">Registro</h1>
+        <img src="src\assets\logoRostro.png" className="sm:w-[20%] lg:w-[10%]"/>
+        <h1 className="text-3xl sm:text-4xl m-10 md:text-5xl ">Registro</h1>
 
         <form
-          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl sm:w-[60%] sm:text-2xl mb-32"
+          className="flex flex-col items-center justify-center text-vino font-BreeSerif text-xl sm:w-[60%] sm:text-2xl mb-32 lg:w-[50%]"
           onSubmit={submitLogin}
         >
           <label className="text-start w-full mt-3 mb-3 sm:text-3xl sm:mt-5">Usuario</label>

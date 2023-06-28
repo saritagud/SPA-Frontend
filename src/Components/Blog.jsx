@@ -10,8 +10,11 @@ function Blog() {
   return (
     <>
     <Nav/>
-      <section className="p-8 min-h-[100vh] text-vino flex flex-col gap-8">
-        <h1 className="font-CinzelDecorative text-vino text-3xl   font-bold sm:text-5xl">
+      <section className="p-8 min-h-screen text-vino flex flex-col gap-8 lg:flex-row lg:items-start">
+
+      <div className="w-full lg:flex lg:flex-col lg:items-center lg:gap-8">
+
+        <h1 className="font-CinzelDecorative text-vino text-3xl font-bold sm:text-5xl lg:text-left w-full">
           Salud y Belleza
         </h1>
         <p className=" font-BreeSerif text-lg sm:text-2xl">
@@ -21,6 +24,7 @@ function Blog() {
           nutrir tu cuerpo, revitalizar tu mente y realzar tu belleza interior y
           exterior.
         </p>
+      </div>
 
         <img
           src="src\assets\sectionBLOG.jpg"
