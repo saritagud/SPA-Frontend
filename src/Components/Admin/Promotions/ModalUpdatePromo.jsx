@@ -13,28 +13,33 @@ function ModalUpdate({ promotionId }) {
   const submit = (event) => {
     event.preventDefault();
 
-    const dataForm = {
-      discount: Promotion,
-      service: Service,
-    };
+    if (!Promotion || !Service) {
+      toast.error("Datos incompletos, rellena todos los campos");
+      return;
+    } else {
+      const dataForm = {
+        discount: Promotion,
+        service: Service,
+      };
 
-    fetch("http://localhost:3000/putPromotion/" + promotionId, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(dataForm),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        toast.success("Se ha editado correctamente");
+      fetch("http://localhost:3000/putPromotion/" + promotionId, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(dataForm),
       })
-      .catch((error) => {
-        console.error(error);
-        toast.error(error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          toast.success("Se ha editado correctamente");
+        })
+        .catch((error) => {
+          console.error(error);
+          toast.error(error);
+        });
+    }
   };
   return (
     <>

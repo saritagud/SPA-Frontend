@@ -1,4 +1,4 @@
-import { FaWindowClose, FaPencilAlt, FaYoast } from "react-icons/fa";
+import { FaWindowClose, FaPencilAlt } from "react-icons/fa";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 
@@ -9,27 +9,31 @@ function ModalUpdate({ testimonyId }) {
 
   const submit = (event) => {
     event.preventDefault();
+    if (!Testimony) {
+      toast.error("Datos incompletos, rellena todos los campos");
+      return;
+    } else {
+      const dataForm = {
+        testimony: Testimony,
+      };
 
-    const dataForm = {
-      testimony: Testimony,
-    };
-
-    fetch("http://localhost:3000/putTestimony/" + testimonyId, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dataForm),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        toast.success("Se ha editado correctamente");
+      fetch("http://localhost:3000/putTestimony/" + testimonyId, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataForm),
       })
-      .catch((error) => {
-        console.error(error);
-        toast.error(error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          toast.success("Se ha editado correctamente");
+        })
+        .catch((error) => {
+          console.error(error);
+          toast.error(error);
+        });
+    }
   };
   return (
     <>

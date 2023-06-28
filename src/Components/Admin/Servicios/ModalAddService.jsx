@@ -2,7 +2,7 @@ import { FaWindowClose } from "react-icons/fa";
 import { IoAddCircleSharp } from "react-icons/io5";
 import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
-import {  Toaster, toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 function ModalUpdate() {
   const { isLoggedIn, token } = useContext(AuthContext);
@@ -11,38 +11,42 @@ function ModalUpdate() {
   const [price, setPrice] = useState("");
   const [service, setService] = useState("");
 
-
   const submit = (event) => {
     event.preventDefault();
 
-    const dataForm = {
-      service: service,
-      price: price,
-    };
+    if (!price || !service) {
+      toast.error("Datos incompletos, rellena todos los campos");
+      return;
+    } else {
+      const dataForm = {
+        service: service,
+        price: price,
+      };
 
-    fetch("http://localhost:3000/postService", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(dataForm),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        toast.success('Se ha agregado correctamente')
+      fetch("http://localhost:3000/postService", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(dataForm),
       })
-      .catch((error) => {
-        console.error(error);
-        toast.error(error)
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          toast.success("Se ha agregado correctamente");
+        })
+        .catch((error) => {
+          console.error(error);
+          toast.error(error);
+        });
+    }
   };
   return (
     <>
       {isLoggedIn && (
         <div>
-        <Toaster/>
+          <Toaster />
           <IoAddCircleSharp
             className="text-right text-4xl text-vino flex items-end justify-end mr-2 cursor-pointer sm:text-5xl"
             onClick={() => setIsOpen(true)}

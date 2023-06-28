@@ -2,8 +2,8 @@ import { FaWindowClose } from "react-icons/fa";
 import { IoAddCircleSharp } from "react-icons/io5";
 import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
-import { Editor } from '@tinymce/tinymce-react';
-import {  Toaster, toast } from "react-hot-toast";
+import { Editor } from "@tinymce/tinymce-react";
+import { Toaster, toast } from "react-hot-toast";
 
 function ModalAdd() {
   const { isLoggedIn, token } = useContext(AuthContext);
@@ -13,34 +13,38 @@ function ModalAdd() {
 
   const submit = (event) => {
     event.preventDefault();
+    if (!Tip) {
+      toast.error("Datos incompletos, rellena todos los campos");
+      return;
+    } else {
+      const dataForm = {
+        tip: Tip,
+      };
 
-    const dataForm = {
-      tip: Tip,
-    };
-
-    fetch("http://localhost:3000/postTips", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(dataForm),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        toast.success('Se ha agregado correctamente')
+      fetch("http://localhost:3000/postTips", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(dataForm),
       })
-      .catch((error) => {
-        console.error(error);
-        toast.error(error)
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          toast.success("Se ha agregado correctamente");
+        })
+        .catch((error) => {
+          console.error(error);
+          toast.error(error);
+        });
+    }
   };
   return (
     <>
       {isLoggedIn && (
         <div>
-        <Toaster/>
+          <Toaster />
           <IoAddCircleSharp
             className="text-right text-vino text-4xl flex items-end justify-end mr-2 cursor-pointer md:text-5xl"
             onClick={() => setIsOpen(true)}
@@ -87,7 +91,6 @@ function ModalAdd() {
                         "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
                     }}
                     onEditorChange={(newText) => setTip(newText)}
-                    
                   />
 
                   <button className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold w-[50%] flex justify-center m-5 md:text-2xl md:mt-16">

@@ -1,6 +1,8 @@
 import Nav from "./Nav";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../UseContext/AuthContext";
+import { Toaster, toast } from "react-hot-toast";
+
 
 function Login() {
   const [user, setUser] = useState("");
@@ -9,12 +11,17 @@ function Login() {
 
   const submitLogin = (event) => {
     event.preventDefault();
-    login(user, password);
+    if (!user || !password ) {
+      toast.error("Datos incompletos, rellena todos los campos");
+      return;
+    }else{
+      login(user, password);
+    }
   };
 
   return (
     <>
-
+       <Toaster />
       <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-screen  md:text-2xl">
       <Nav />
         <img src="src\assets\logoRostro.png" className="sm:w-[20%] lg:w-[10%]"/>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Nav from "./Nav"
+import { Toaster, toast } from "react-hot-toast";
 
 function Reservaciones() {
   const [name, setName] = useState("");
@@ -40,32 +41,40 @@ function Reservaciones() {
   const submitReservation = (event) => {
     event.preventDefault();
 
-    const dataForm = {
-      name: name,
-      email: email,
-      service: serviceSelect,
-      schedule: scheduleSelect,
-      phone: phone,
-    };
-
-    fetch("http://localhost:3000/postReservation", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dataForm),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+    if (!name || !email || !serviceSelect || !scheduleSelect || !phone) {
+      toast.error("Datos incompletos, rellena todos los campos");
+      return;
+    } else {
+      const dataForm = {
+        name: name,
+        email: email,
+        service: serviceSelect,
+        schedule: scheduleSelect,
+        phone: phone,
+      };
+  
+      fetch("http://localhost:3000/postReservation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataForm),
       })
-      .catch((error) => {
-        console.error(error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          toast.success('Reservacion enviada correctamente! Te enviaremos un correo con todos los detalles')
+        })
+        .catch((error) => {
+          console.error(error);
+          toast.error(error)
+        });
+    }
   };
   return (
     <>
     <Nav/>
+    <Toaster />
       <section className=" flex flex-col items-center justify-center font-CinzelDecorative text-vino min-h-[100vh] gap-8">
         <img src="src\assets\logoRostro.png" />
         <h1 className="text-3xl md:text-4xl">Agenda tu cita</h1>

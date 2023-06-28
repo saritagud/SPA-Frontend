@@ -12,29 +12,34 @@ function ModalUpdate({ recommendationId }) {
 
   const submit = (event) => {
     event.preventDefault();
+    if (!Name || !Recommendation) {
+      toast.error("Datos incompletos, rellena todos los campos");
+      return;
+    } else{
 
-    const dataForm = {
-      name: Name,
-      recommendation: Recommendation,
-    };
-
-    fetch("http://localhost:3000/putRecommendation/" + recommendationId, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(dataForm),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        toast.success("Se ha editado correctamente");
+      const dataForm = {
+        name: Name,
+        recommendation: Recommendation,
+      };
+  
+      fetch("http://localhost:3000/putRecommendation/" + recommendationId, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(dataForm),
       })
-      .catch((error) => {
-        console.error(error);
-        toast.error(error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          toast.success("Se ha editado correctamente");
+        })
+        .catch((error) => {
+          console.error(error);
+          toast.error(error);
+        });
+    }
   };
   return (
     <>
