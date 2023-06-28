@@ -2,6 +2,7 @@ import { FaWindowClose } from "react-icons/fa";
 import { IoAddCircleSharp } from "react-icons/io5";
 import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
+import {  Toaster, toast } from "react-hot-toast";
 
 function ModalUpdate() {
   const { isLoggedIn, token } = useContext(AuthContext);
@@ -30,15 +31,18 @@ function ModalUpdate() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        toast.success('Se ha agregado correctamente')
       })
       .catch((error) => {
         console.error(error);
+        toast.error(error)
       });
   };
   return (
     <>
       {isLoggedIn && (
         <div>
+        <Toaster/>
           <IoAddCircleSharp
             className="text-right text-4xl text-vino flex items-end justify-end mr-2 cursor-pointer sm:text-5xl"
             onClick={() => setIsOpen(true)}

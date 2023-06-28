@@ -1,11 +1,11 @@
 import React, { createContext, useState, useEffect } from "react";
-
+import { Toaster, toast } from "react-hot-toast";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState('')
-  console.log(token)
+  const [token, setToken] = useState("");
+  console.log(token);
   const login = (user, password) => {
     const dataLogin = {
       user: user,
@@ -21,15 +21,15 @@ export const AuthProvider = ({ children }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setToken(data.token)
-        localStorage.setItem('token', data.token)
+        setToken(data.token);
+        localStorage.setItem("token", data.token);
+        toast.success("Bienvenida/o");
       })
       .catch((error) => {
         console.error(error);
       });
     setIsLoggedIn(true);
     localStorage.setItem("logged", isLoggedIn);
-
   };
 
   const register = (user, email, password) => {
@@ -48,15 +48,16 @@ export const AuthProvider = ({ children }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setToken(data.token)
-        localStorage.setItem('token', token)
+        setToken(data.token);
+        localStorage.setItem("token", token);
+        toast.success("Bienvenida/o");
       })
       .catch((error) => {
         console.error(error);
       });
     setIsLoggedIn(true);
     localStorage.setItem("logged", true);
-    localStorage.setItem('token', token)
+    localStorage.setItem("token", token);
   };
 
   const logout = () => {
@@ -75,13 +76,16 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
-        setToken(storedToken)
+      setToken(storedToken);
     }
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, register, logout, token }}>
+    <AuthContext.Provider
+      value={{ isLoggedIn, login, register, logout, token }}
+    >
       {children}
+      <Toaster />
     </AuthContext.Provider>
   );
 };

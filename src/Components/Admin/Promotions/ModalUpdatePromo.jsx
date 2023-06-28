@@ -1,6 +1,7 @@
 import { FaWindowClose, FaPencilAlt } from "react-icons/fa";
 import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
+import { Toaster, toast } from "react-hot-toast";
 
 function ModalUpdate({ promotionId }) {
   const { isLoggedIn, token } = useContext(AuthContext);
@@ -21,22 +22,25 @@ function ModalUpdate({ promotionId }) {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(dataForm),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        toast.success("Se ha editado correctamente");
       })
       .catch((error) => {
         console.error(error);
+        toast.error(error);
       });
   };
   return (
     <>
       {isLoggedIn && (
         <div>
+          <Toaster />
           <FaPencilAlt
             className="text-right text-xl flex items-end justify-end mr-2 cursor-pointer sm:text-2xl "
             onClick={() => setIsOpen(true)}
@@ -81,7 +85,7 @@ function ModalUpdate({ promotionId }) {
             </form>
           )}
         </div>
-      )} 
+      )}
     </>
   );
 }

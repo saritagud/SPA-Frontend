@@ -1,8 +1,7 @@
 import { FaWindowClose, FaPencilAlt } from "react-icons/fa";
 import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
-
-
+import { Toaster, toast } from "react-hot-toast";
 
 function ModalUpdate({ tipId }) {
   const { isLoggedIn, token } = useContext(AuthContext);
@@ -28,15 +27,18 @@ function ModalUpdate({ tipId }) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        toast.success("Se ha editado correctamente");
       })
       .catch((error) => {
         console.error(error);
+        toast.error(error);
       });
   };
   return (
     <>
       {isLoggedIn && (
         <div>
+          <Toaster />
           <FaPencilAlt
             className="text-right text-xl flex items-end justify-end mr-2 cursor-pointer xl:text-3xl"
             onClick={() => setIsOpen(true)}
@@ -58,10 +60,12 @@ function ModalUpdate({ tipId }) {
                   <label className="w-full text-left mb-3 text-xl ">
                     Consejo de belleza
                   </label>
-                  {<textarea
-                    className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full h-52 sm:text-xl md:text-2xl md:p-3"
-                    onChange={(e) => setTip(e.target.value.trim())}
-                  /> }
+                  {
+                    <textarea
+                      className="rounded-lg p-3 bg-vino text-white font-normal text-[15px] w-full h-52 sm:text-xl md:text-2xl md:p-3"
+                      onChange={(e) => setTip(e.target.value.trim())}
+                    />
+                  }
 
                   <button className="bg-vino p-3 rounded-md text-white font-Urbanist font-semibold w-[50%] flex justify-center m-5 sm:text-xl md:text-2xl md:mt-16">
                     Guardar

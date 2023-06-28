@@ -1,6 +1,7 @@
 import { FaWindowClose } from "react-icons/fa";
 import { IoAddCircleSharp } from "react-icons/io5";
 import { useState } from "react";
+import {  Toaster, toast } from "react-hot-toast";
 
 
 function ModalAdd() {
@@ -26,14 +27,17 @@ function ModalAdd() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        toast.success('Se ha agregado correctamente')
       })
       .catch((error) => {
         console.error(error);
+        toast.error(error)
       });
   };
   return (
     <>
         <div>
+        <Toaster/>
           <IoAddCircleSharp
             className="text-right text-vino text-4xl flex items-end justify-end mr-2 cursor-pointer sm:text-5xl lg:text-6xl"
             onClick={() => setIsOpen(true)}

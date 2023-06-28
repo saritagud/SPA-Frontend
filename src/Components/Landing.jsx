@@ -14,8 +14,8 @@ function Landing() {
       <Nav />
       <section className="m-5 -mt-6 min-h-screen text-vino flex flex-col items-center gap-5 md:mt-7 lg:flex-row lg:items-start">
 
-        <div className="w-full lg:flex lg:flex-col lg:items-center">
-        <h1 className="font-CinzelDecorative text-vino text-3xl  mt-10 font-bold sm:text-4xl md:text-5xl lg:mt-0">
+        <div className="w-full lg:flex lg:flex-col lg:items-center lg:gap-8">
+        <h1 className="font-CinzelDecorative text-vino text-3xl  mt-10 font-bold sm:text-4xl md:text-5xl lg:mt-0 ">
           Donde la relajación y la belleza se unen en armonía
         </h1>
           <p className="mt-3 mb-3 font-BreeSerif text-lg sm:text-2xl md:text-3xl">

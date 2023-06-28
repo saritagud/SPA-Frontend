@@ -75,7 +75,7 @@ export default function Example() {
 
         <IconButton
           variant="text"
-          className="ml-auto mt-5 h-3 w-2 text-vino hover:bg-transparent focus:bg-transparent active:bg-transparent sm:mr-8 lg:hidden"
+          className="ml-auto mt-5 h-5 w-5 text-vino hover:bg-transparent focus:bg-transparent active:bg-transparent sm:mr-8 lg:hidden"
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >

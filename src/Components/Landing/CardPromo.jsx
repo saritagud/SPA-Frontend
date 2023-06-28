@@ -19,7 +19,7 @@ function CardPromo() {
       console.error(error);
     });
   return (
-    <div className="w-full lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-10">
+    <div className="w-full flex flex-col items-center lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-10">
       {promotion.map((promotion) => (
         <section
           key={promotion._id}

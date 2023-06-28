@@ -1,6 +1,7 @@
 import { FaTrash } from "react-icons/fa";
 import { useState, useContext } from "react";
 import { AuthContext } from "/src/UseContext/AuthContext";
+import { Toaster, toast } from "react-hot-toast";
 
 function ModalDelete({ recommendationId }) {
   const { isLoggedIn, token } = useContext(AuthContext);
@@ -10,15 +11,17 @@ function ModalDelete({ recommendationId }) {
     fetch("http://localhost:3000/deleteRecommendation/" + recommendationId, {
       method: "DELETE",
       headers: {
-        'Authorization': `Bearer ${token}`,
-      }
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        toast.success("Se ha eliminado correctamente");
       })
       .catch((error) => {
         console.error(error);
+        toast.error(error);
       });
     setIsOpen(!isOpen);
   };
@@ -26,6 +29,7 @@ function ModalDelete({ recommendationId }) {
     <>
       {isLoggedIn && (
         <div>
+          <Toaster />
           <FaTrash
             className="text-right text-2xl text-vino  flex items-end justify-end mr-2 cursor-pointer sm:text-2xl xl:text-3xl"
             onClick={() => setIsOpen(true)}

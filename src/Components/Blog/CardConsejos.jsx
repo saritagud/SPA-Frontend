@@ -2,6 +2,7 @@ import { useState } from "react";
 import ModalUpdateTips from "../Admin/Tips/ModalUpdateTips";
 import ModalDeleteTips from "../Admin/Tips/ModalDeleteTips";
 
+
 function CardConsejos() {
   const [tips, setTips] = useState([]);
 
@@ -14,12 +15,14 @@ function CardConsejos() {
     .then((response) => response.json())
     .then((data) => {
       setTips(data);
+      
     })
     .catch((error) => {
       console.error(error);
     });
   return (
-    <div className="w-full lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-10">
+    <div className="w-full flex flex-col items-center lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-10">
+    
       {tips.map((tips) => (
         <section
           key={tips._id}
